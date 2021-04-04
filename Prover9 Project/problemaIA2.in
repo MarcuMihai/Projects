@@ -1,0 +1,35 @@
+% Saved by Prover9-Mace4 Version 0.5, December 2007.
+
+set(ignore_option_dependencies). % GUI handles dependencies
+
+if(Prover9). % Options for Prover9
+  assign(max_seconds, 60).
+end_if.
+
+if(Mace4).   % Options for Mace4
+  assign(max_seconds, 60).
+end_if.
+
+formulas(assumptions).
+
+knight(blue) | knight(red) | knight(green).
+knave(blue) | knave(red) | knave(green).
+spy(blue) | spy(red) | spy(green).
+
+spy(x)->-knight(x) & -knave(x).
+knight(x)->-spy(x) & -knave(x).
+knave(x)->-knight(x) & -spy(x).
+
+knight(blue)->spy(red).
+knave(blue)->-spy(red).
+knight(red)->spy(green).
+knave(red)->-spy(green).
+knight(green)->spy(red).
+knave(green)->-spy(red).
+
+end_of_list.
+
+formulas(goals).
+
+end_of_list.
+

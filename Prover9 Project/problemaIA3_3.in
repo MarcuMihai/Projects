@@ -1,0 +1,44 @@
+% Saved by Prover9-Mace4 Version 0.5, December 2007.
+
+set(ignore_option_dependencies). % GUI handles dependencies
+
+if(Prover9). % Options for Prover9
+  assign(max_seconds, 60).
+end_if.
+
+if(Mace4).   % Options for Mace4
+  assign(max_seconds, 60).
+end_if.
+
+formulas(assumptions).
+
+t1->-t2.
+t2->-t1.
+p1->-t1.
+p2->-t2.
+
+(door1sign1 & door2sign2) | (door1sign2 & door2sign1).
+door1sign1->-door1sign2.
+door2sign1->-door2sign2.
+door1sign2->-door1sign1.
+door2sign2->-door2sign1.
+
+door1sign1 & s1->p1.
+door1sign1 & -s1->t1.
+door1sign2 & s2->p1.
+door1sign2 & -s2->t1.
+door2sign1 & s1->t2.
+door2sign1 & -s1->p2.
+door2sign2 & s2->t2.
+door2sign2 & -s2->p2.
+
+door1sign1 & s1->t1.
+door2sign1 & s1->t2.
+s2->t1 & t2.
+
+end_of_list.
+
+formulas(goals).
+
+end_of_list.
+

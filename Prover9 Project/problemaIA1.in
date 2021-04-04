@@ -1,0 +1,252 @@
+% Saved by Prover9-Mace4 Version 0.5, December 2007.
+
+set(ignore_option_dependencies). % GUI handles dependencies
+
+if(Prover9). % Options for Prover9
+  assign(max_seconds, 60).
+end_if.
+
+if(Mace4).   % Options for Mace4
+  assign(max_seconds, 60).
+end_if.
+
+formulas(assumptions).
+
+differentFrom(a,b).
+differentFrom(a,c).
+differentFrom(a,d).
+differentFrom(a,e).
+differentFrom(b,c).
+differentFrom(b,d).
+differentFrom(b,e).
+differentFrom(c,d).
+differentFrom(c,e).
+differentFrom(d,e).
+
+differentFrom(x,y)->differentFrom(y,x).
+
+rightNeighbour(a,b).
+rightNeighbour(b,c).
+rightNeighbour(c,d).
+rightNeighbour(d,e).
+
+-rightNeighbour(a,a).
+-rightNeighbour(a,c).
+-rightNeighbour(a,d).
+-rightNeighbour(a,e).
+
+-rightNeighbour(b,a).
+-rightNeighbour(b,b).
+-rightNeighbour(b,d).
+-rightNeighbour(b,e).
+
+-rightNeighbour(c,a).
+-rightNeighbour(c,b).
+-rightNeighbour(c,c).
+-rightNeighbour(c,e).
+
+-rightNeighbour(d,a).
+-rightNeighbour(d,b).
+-rightNeighbour(d,c).
+-rightNeighbour(d,d).
+
+-rightNeighbour(e,a).
+-rightNeighbour(e,b).
+-rightNeighbour(e,c).
+-rightNeighbour(e,d).
+-rightNeighbour(e,e).
+rightNeighbour(x,y) | rightNeighbour(y,x)<->neighbour(x,y).
+
+between(a,b,c).
+between(a,b,d).
+between(a,b,e).
+between(a,c,d).
+between(a,c,e).
+between(a,d,e).
+between(b,c,d).
+between(b,c,e).
+between(b,d,e).
+between(c,d,e).
+
+-between(a,a,a).
+-between(a,a,b).
+-between(a,a,c).
+-between(a,a,d).
+-between(a,a,e).
+-between(a,b,a).
+-between(a,b,b).
+-between(a,c,a).
+-between(a,c,b).
+-between(a,c,c).
+-between(a,d,a).
+-between(a,d,b).
+-between(a,d,c).
+-between(a,d,d).
+-between(a,e,a).
+-between(a,e,b).
+-between(a,e,c).
+-between(a,e,d).
+-between(a,e,e).
+-between(b,a,a).
+-between(b,a,b).
+-between(b,a,c).
+-between(b,a,d).
+-between(b,a,e).
+-between(b,b,a).
+-between(b,b,b).
+-between(b,b,c).
+-between(b,b,d).
+-between(b,b,e).
+-between(b,c,a).
+-between(b,c,b).
+-between(b,c,c).
+-between(b,d,a).
+-between(b,d,b).
+-between(b,d,c).
+-between(b,d,d).
+-between(b,e,a).
+-between(b,e,b).
+-between(b,e,c).
+-between(b,e,d).
+-between(b,e,e).
+-between(c,a,a).
+-between(c,a,b).
+-between(c,a,c).
+-between(c,a,d).
+-between(c,a,e).
+-between(c,b,a).
+-between(c,b,b).
+-between(c,b,c).
+-between(c,b,d).
+-between(c,b,e).
+-between(c,c,a).
+-between(c,c,b).
+-between(c,c,c).
+-between(c,c,d).
+-between(c,c,e).
+-between(c,d,a).
+-between(c,d,b).
+-between(c,d,c).
+-between(c,d,d).
+-between(c,e,a).
+-between(c,e,b).
+-between(c,e,c).
+-between(c,e,d).
+-between(c,e,e).
+-between(d,a,a).
+-between(d,a,b).
+-between(d,a,c).
+-between(d,a,d).
+-between(d,a,e).
+-between(d,b,a).
+-between(d,b,b).
+-between(d,b,c).
+-between(d,b,d).
+-between(d,b,e).
+-between(d,c,a).
+-between(d,c,b).
+-between(d,c,c).
+-between(d,c,d).
+-between(d,c,e).
+-between(d,d,a).
+-between(d,d,b).
+-between(d,d,c).
+-between(d,d,d).
+-between(d,d,e).
+-between(d,e,a).
+-between(d,e,b).
+-between(d,e,c).
+-between(d,e,d).
+-between(d,e,e).
+-between(e,a,a).
+-between(e,a,b).
+-between(e,a,c).
+-between(e,a,d).
+-between(e,a,e).
+-between(e,b,a).
+-between(e,b,b).
+-between(e,b,c).
+-between(e,b,d).
+-between(e,b,e).
+-between(e,c,a).
+-between(e,c,b).
+-between(e,c,c).
+-between(e,c,d).
+-between(e,c,e).
+-between(e,d,a).
+-between(e,d,b).
+-between(e,d,c).
+-between(e,d,d).
+-between(e,d,e).
+-between(e,e,a).
+-between(e,e,b).
+-between(e,e,c).
+-between(e,e,d).
+-between(e,e,e).
+
+Alex(x) | Daniel(x) | Jacob(x) | Logan(x) | William(x).
+blue(x) | green(x) | red(x) | white(x) | yellow(x).
+crossover(x) | hatchback(x) | pickup(x) | sedan(x) | suv(x).
+10k(x) | 20k(x) | 30k(x) | 40k(x) | 50k(x).
+$5(x) | $10(x) | $15(x) | $20(x) | $25(x).
+American(x) | French(x) | German(x) | Italian(x) | Korean(x).
+
+Alex(x) & Alex(y)-> -differentFrom(x,y).
+Daniel(x) & Daniel(y)-> -differentFrom(x,y).
+Jacob(x) & Jacob(y)-> -differentFrom(x,y).
+Logan(x) & Logan(y)-> -differentFrom(x,y).
+William(x) & William(y)-> -differentFrom(x,y).
+blue(x) & blue(y)-> -differentFrom(x,y).
+green(x) & green(y)-> -differentFrom(x,y).
+red(x) & red(y)-> -differentFrom(x,y).
+white(x) & white(y)-> -differentFrom(x,y).
+yellow(x) & yellow(y)-> -differentFrom(x,y).
+crossover(x) & crossover(y)-> -differentFrom(x,y).
+hatchback(x) & hatchback(y)-> -differentFrom(x,y).
+pickup(x) & pickup(y)-> -differentFrom(x,y).
+sedan(x) & sedan(y)-> -differentFrom(x,y).
+suv(x) & suv(y)-> -differentFrom(x,y).
+10k(x) & 10k(y)-> -differentFrom(x,y).
+20k(x) & 20k(y)-> -differentFrom(x,y).
+30k(x) & 30k(y)-> -differentFrom(x,y).
+40k(x) & 40k(y)-> -differentFrom(x,y).
+50k(x) & 50k(y)-> -differentFrom(x,y).
+$5(x) & $5(y)-> -differentFrom(x,y).
+$10(x) & $10(y)-> -differentFrom(x,y).
+$15(x) & $15(y)-> -differentFrom(x,y).
+$20(x) & $20(y)-> -differentFrom(x,y).
+$25(x) & $25(y)-> -differentFrom(x,y).
+American(x) & American(y)-> -differentFrom(x,y).
+French(x) & French(y)-> -differentFrom(x,y).
+German(x) & German(y)-> -differentFrom(x,y).
+Italian(x) & Italian(y)-> -differentFrom(x,y).
+Korean(x) & Korean(y)-> -differentFrom(x,y).
+
+Daniel(x) & $20(y) & $5(z)->between(x,y,z).
+Alex(e).
+yellow(x) & 30k(y)->rightNeighbour(x,y).
+Italian(a) | Italian(e).
+$25(x) & 40k(y) & French(z)->between(x,y,z).
+sedan(x) & 50k(y)->rightNeighbour(x,y).
+Jacob(d).
+red(x) & blue(y) & Italian(z)->between(x,y,z).
+Korean(d).
+crossover(x) & 30k(y)->neighbour(x,y).
+40k(x) & $5(y)->neighbour(x,y).
+suv(x)<->$5(x).
+American(x) & German(y) & French(z)->between(x,y,z).
+Jacob(x) & suv(y)->neighbour(x,y).
+$15(a) | $15(e).
+pickup(x) & blue(y) & French(z)->between(x,y,z).
+20k(d).
+American(a) | American(e).
+white(x) & yellow(y)->rightNeighbour(x,y).
+American(x) & William(y) & Logan(z)->between(x,y,z).
+30k(e).
+
+end_of_list.
+
+formulas(goals).
+
+end_of_list.
+

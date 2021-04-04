@@ -1,0 +1,7 @@
+(define (problem cakeshopprob1)
+  (:domain cakeshopdomain)
+  (:objects a)
+  (:init (ordersCheesecake a)
+  (=(total-cost) 0))
+  (:goal (clientPaid a))
+  (:metric minimize(total-cost)))
