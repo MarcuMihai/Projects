@@ -1,0 +1,9 @@
+Breakfast 178
+Toileting 140
+Grooming 160
+Sleeping 7863
+Leaving 1664
+Spare_Time/TV 8548
+Showering 94
+Snack 6
+Lunch 313
