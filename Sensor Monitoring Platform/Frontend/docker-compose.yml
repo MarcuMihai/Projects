@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+
+  react:
+    image: fe_docker_img
+    ports:
+       - "80:80"
